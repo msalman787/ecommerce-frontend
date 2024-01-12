@@ -1,0 +1,23 @@
+.side-panel {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.side-panel div {
+    color: black;
+    text-align: center;
+    /* Title/16PX Regular */
+    font-family: "Poppins-Bold";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
+.side-panel div:hover {
+    background-color: rgb(226, 226, 226);
+}

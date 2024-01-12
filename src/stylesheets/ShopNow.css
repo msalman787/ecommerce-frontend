@@ -1,0 +1,16 @@
+.shop-now-card {
+    color: #FFF;
+
+/* Title/16PX Medium */
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-decoration: underline;
+}
+
+.shop-now-card:hover {
+    background-color: #FFF;
+    opacity: 0.3;
+}

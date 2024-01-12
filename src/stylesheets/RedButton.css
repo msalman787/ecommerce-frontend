@@ -1,0 +1,21 @@
+.red-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 3rem;
+    border-radius: 0.25rem;
+    background-color: var(--main-red);
+    color: var(--text-white);
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    transition: all 0.3 ease-in;
+}
+
+.red-button:hover {
+    background-color: var(--button-hover);
+}
