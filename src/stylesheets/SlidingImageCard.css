@@ -1,0 +1,9 @@
+.SlidingImageCard {
+    position: relative;
+}
+
+.sliding-image-card-buttons {
+    position: absolute;
+    left: 13.3rem;
+    bottom: 4px;
+}

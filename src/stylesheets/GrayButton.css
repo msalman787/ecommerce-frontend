@@ -1,0 +1,15 @@
+.gray-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    padding: 1rem 3rem;
+
+    color: black;
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+}

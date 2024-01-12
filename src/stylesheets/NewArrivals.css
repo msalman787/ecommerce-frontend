@@ -1,0 +1,16 @@
+.new-arrivals-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3.75rem;
+}
+
+.new-arrivals-images-container {
+    display: flex;
+    align-items: start;
+    gap: 1.875rem;
+}
+
+.flex-1 {
+    flex: 1;
+}

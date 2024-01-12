@@ -1,0 +1,8 @@
+.top-header {
+    display: flex;
+    width: 100vw;
+    height: 48px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+}
