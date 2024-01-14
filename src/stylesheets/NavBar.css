@@ -1,0 +1,49 @@
+nav.nav-bar {
+    color:black;
+    width: 73rem;
+    height: 2.4rem;
+    justify-content: start;
+    background-color: white;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 100vw;
+}
+
+nav.nav-bar .special-text-logo {
+    font-weight: bolder;
+}
+
+nav .headers {
+    gap: 3vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    cursor: pointer;
+}
+
+nav.nav-bar .headers header:hover {
+    text-decoration: underline;
+}
+
+nav.nav-bar div div {
+    gap: 0.2rem;
+}
+
+nav.nav-bar .search-bar {
+    background-color: var(--secondary-gray);
+    border-radius: 3px;
+    padding: 0.2vw;
+}
+
+nav.nav-bar .search-bar input {
+    color: black;
+    background-color: var(--secondary-gray);
+    width: 12vw;
+    padding: 0.3vw;
+    border: none;
+}
+
+nav.nav-bar .search-bar input:focus {
+    border-color: rgb(0,0,0,0.2);
+}

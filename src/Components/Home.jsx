@@ -7,7 +7,7 @@ import CategoryTitle from "./CategoryTitle"
 import MoveButton from "./MoveButton"
 import Footer from "./Footer"
 import NewArrivals from "./NewArrivals"
-
+import ButtomIcons from "./BottomIcons"
 
 const imageUrls = [
     "../../public/SlidingImageCard/1.jpg",
@@ -30,6 +30,7 @@ export default function Home() {
             <MoveButton direction="left" />
             <MoveButton direction="right" />
             <NewArrivals />
+            <ButtomIcons />
             <Footer />
         </div>
     )

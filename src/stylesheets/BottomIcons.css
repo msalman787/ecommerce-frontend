@@ -1,0 +1,35 @@
+.bottom-icons {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 88px;
+}
+
+.bottom-icons .single-icon-wrapper {
+    display: flex;
+    width: 262px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.bottom-icons .single-icon-wrapper div:nth-child(2) {
+    color: black;
+    font-family: "Poppins-Bold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+}
+
+.bottom-icons .single-icon-wrapper div:nth-child(3) {
+    color: #000;
+    text-align: center;
+    
+    /* Title/14PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; /* 150% */
+}
