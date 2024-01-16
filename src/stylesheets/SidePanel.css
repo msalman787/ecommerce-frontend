@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    border-right: solid 1px var(--secondary-gray);
+    padding-right: 2.7vw;
 }
 
 .side-panel div {

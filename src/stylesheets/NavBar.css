@@ -1,25 +1,31 @@
 nav.nav-bar {
-    color:black;
-    width: 73rem;
-    height: 2.4rem;
+    display: flex;
     justify-content: start;
+    color:black;
+    height: 2.4rem;
     background-color: white;
     margin-top: 3rem;
     margin-bottom: 1rem;
     margin-left: 10vw;
-    margin-right: 10vw;
     width: 100vw;
+    border-bottom: solid 1px var(--secondary-gray);
+    padding-bottom: 1vw;
 }
 
 nav.nav-bar .special-text-logo {
     font-weight: bolder;
+    margin: 0;
 }
 
 nav .headers {
-    gap: 3vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    gap: 4vw;
+    margin-left: 15vw;
+    margin-right: 23vw;
     cursor: pointer;
+}
+
+nav .headers header {
+    white-space: nowrap;
 }
 
 nav.nav-bar .headers header:hover {
@@ -34,6 +40,7 @@ nav.nav-bar .search-bar {
     background-color: var(--secondary-gray);
     border-radius: 3px;
     padding: 0.2vw;
+    margin-right: 5vw;
 }
 
 nav.nav-bar .search-bar input {

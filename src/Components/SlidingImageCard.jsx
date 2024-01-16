@@ -41,11 +41,13 @@ export default function SlidingImageCard({ imageUrls, width, height }) {
     }
 
     return (
-        <div className="SlidingImageCard" style={style}>
+        <div className="sliding-image-card" style={style}>
             {imageUrls.map((image, i) => {
                 return i === curIndex ? <img key={i} className="sliding-image-card" src={image} /> : null
             })}
-            <ButtonRow index={curIndex} setIndex={setCurIndex} numButtons={imageUrls.length} />
+            <div className="sliding-image-card-buttons-wrapper">
+                <ButtonRow index={curIndex} setIndex={setCurIndex} numButtons={imageUrls.length} />
+            </div>
         </div>
     )
 }

@@ -24,7 +24,7 @@ const Searchbar = () => {
 
 export default function NavBar() {
     return (
-        <nav className="nav-bar center-child">
+        <nav className="nav-bar">
             <div className='special-text-logo'>Exclusive</div>
             <div className="headers center-child">
                 <header>Home</header>
@@ -32,12 +32,10 @@ export default function NavBar() {
                 <header>About</header>
                 <header>Sign Up</header>
             </div>
+            <Searchbar />
             <div className='center-child'>
-                <Searchbar />
-                <div className='center-child'>
-                    <HeartSvg />
-                    <ShoppingCartSvg />
-                </div>
+                <HeartSvg />
+                <ShoppingCartSvg />
             </div>
         </nav>
     )

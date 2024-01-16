@@ -1,4 +1,3 @@
-
 import "../stylesheets/ProductCard.css"
 
 const Heart = () => {
@@ -51,18 +50,17 @@ const EmptyStar = () => {
 
 const Stars = ({ reviewRating, reviewNum }) => {
     const starsNum = Math.round(reviewRating * 2)
-    console.log(starsNum)
 
     return (
         <div className="product-card-stars">
             <div className="stars">
                 {Array(5).fill(null).map((_, i) => {
                     if (i + 1 <= Math.floor(starsNum / 2)) {
-                        return <FullStar />
+                        return <FullStar key={i} />
                     } else if (starsNum % 2 === 1 && i + 1 <= Math.ceil(starsNum / 2)) {
-                        return <HalfStar />
+                        return <HalfStar key={i} />
                     } else {
-                        return <EmptyStar />
+                        return <EmptyStar key={i} />
                     }
                 })}
             </div>
@@ -72,7 +70,6 @@ const Stars = ({ reviewRating, reviewNum }) => {
 }
 
 const Price = ({ price, discount }) => {
-    console.log(price, discount, price * discount)
     return (
         <div className="product-card-price">
             <span className="price-discounted">${Math.round(price * discount)}</span>{discount < 1 && <span className="price">${price}</span>}
@@ -93,15 +90,15 @@ const ProductImage = ({ clickFn, imageUrl, discount }) => {
     )
 }
 
-export default function ProductCard({ clickFn, discount, price, title, imageUrl, reviewNum, reviewRating }) {
+export default function ProductCard({ clickFn = () => { }, discount, price, title, image, num_rating, rating }) {
 
     return (
         <div className="product-card">
-            <ProductImage discount={discount} imageUrl={imageUrl} clickFn={clickFn} />
+            <ProductImage discount={discount} imageUrl={image} clickFn={clickFn} />
             <div className="info-card">
                 <h1 className="product-card-title" onClick={clickFn}>{title}</h1>
                 <Price price={price} discount={discount} />
-                <Stars reviewNum={reviewNum} reviewRating={reviewRating} />
+                <Stars reviewNum={num_rating} reviewRating={rating} />
             </div>
         </div>
     )

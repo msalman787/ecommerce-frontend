@@ -1,0 +1,5 @@
+.product-view {
+    display: grid;
+    /* width: 85vw; */
+    gap: 3vw;
+}

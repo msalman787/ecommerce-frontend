@@ -1,9 +1,12 @@
-PRODUCT_URL = ""
+const PRODUCT_URL = "http://ec2-34-229-171-36.compute-1.amazonaws.com/api/products/"
 
-export function fetchAllProducts() {
-    return fetch(PRODUCT_URL).json()
+export async function fetchAllProducts() {
+    const response = await fetch(`${PRODUCT_URL}/all`)
+    const data = await response.json()
+    console.log("data fetched is ", data)
+    return data
 }
 
 export function fetchProduct(id) {
-    return fetch(`${PRODUCT_URL}${id}/`).json()
+    return fetch(`${PRODUCT_URL}${id}/`).then(response => response.json())
 }

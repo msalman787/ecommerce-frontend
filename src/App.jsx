@@ -1,22 +1,28 @@
 import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
 import './App.css'
 import "./fonts/Poppins-Bold.ttf"
 import "./fonts/Poppins-Regular.ttf"
 
 import NavBar from './Components/NavBar'
 import Home from './Components/Home'
-
 import WishList from './Components/WishList'
 
-
-import { useQuery } from '@tanstack/react-query'
+import { fetchAllProducts } from './services/fetchProducts'
 
 function App() {
+  const products = useQuery({
+    queryKey: ['products'],
+    queryFn: fetchAllProducts,
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
+  })
 
   return (
     <>
       <NavBar />
-      <Home />
+      <Home products={products} />
       {/* <WishList /> */}
     </>
   )
