@@ -8,9 +8,9 @@
     font-weight: 500;
     line-height: 1.5rem;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .shop-now-card:hover {
-    background-color: #FFF;
-    opacity: 0.3;
+    opacity: 0.8;
 }

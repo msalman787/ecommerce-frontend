@@ -13,10 +13,9 @@ import { useQuery } from "@tanstack/react-query"
 import { useQueryClient } from "@tanstack/react-query"
 
 import "../stylesheets/Home.css"
+import ProductView from "./ProductView"
 
 export default function Home({ products }) {
-    const queryClient = useQueryClient()
-
     const mainFlyers = useQuery({
         queryKey: ['mainFlyers'],
         queryFn: fetchFlyers('main'),
@@ -38,7 +37,7 @@ export default function Home({ products }) {
                     <CategoryTitle topTitle="Today's" bottomTitle="Flash Sale" />
                     <CountDown />
                 </div>
-                <HorizontalScrollBar products={products.data.filter(product => product.discount < 1)} offsetWidth={200} />
+                <HorizontalScrollBar products={products.data.filter(product => product.discount < 1)} />
             </article>
             <article className="category-card">
                 <div className="title-wrapper">
@@ -49,13 +48,16 @@ export default function Home({ products }) {
             <article className="best-selling-card">
                 <div className="title-wrapper">
                     <CategoryTitle topTitle="This months" bottomTitle="Best Selling Products" />
-                    <RedButton text="View All" />
                 </div>
+                <HorizontalScrollBar products={products.data.filter(product => product.id > 5)} />
+                <RedButton text="View All" />
             </article>
             <article className="our-products-card">
                 <div className="title-wrapper">
                     <CategoryTitle topTitle="Our products" bottomTitle="Explore our products" />
                 </div>
+                <ProductView products={products.data} />
+                <RedButton text="Shop all products" />
             </article>
             <article className="new-arrivals-card">
                 <div className="title-wrapper">

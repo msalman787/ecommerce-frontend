@@ -1,4 +1,5 @@
 import "../stylesheets/ProductCard.css"
+import { wishlistToggle } from "../state/products/wishlistSlice"
 
 const Heart = () => {
     return (
@@ -77,7 +78,7 @@ const Price = ({ price, discount }) => {
     )
 }
 
-const ProductImage = ({ clickFn, imageUrl, discount }) => {
+const ProductImage = ({ clickFn, imageUrl, discount, wishlistFn }) => {
 
     return (
         <div className="image-container" onClick={clickFn}>
@@ -90,11 +91,11 @@ const ProductImage = ({ clickFn, imageUrl, discount }) => {
     )
 }
 
-export default function ProductCard({ clickFn = () => { }, discount, price, title, image, num_rating, rating, style }) {
+export default function ProductCard({ clickFn = () => { }, id, discount, price, title, image, num_rating, rating, style }) {
 
     return (
         <div className="product-card" style={style}>
-            <ProductImage discount={discount} imageUrl={image} clickFn={clickFn} />
+            <ProductImage discount={discount} imageUrl={image} clickFn={clickFn} wishlistFn={() => wishlistToggle({ id })} />
             <div className="info-card">
                 <h1 className="product-card-title" onClick={clickFn}>{title}</h1>
                 <Price price={price} discount={discount} />

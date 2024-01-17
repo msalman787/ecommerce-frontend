@@ -5,11 +5,11 @@ export default function ScrollWrapper({ children, maxOffset }) {
     const [offset, setOffset] = useState(0)
 
     const scrollLeft = (e) => {
-        setOffset(Math.max(offset - 1, 0))
+        setOffset(prev => Math.max(prev - 1, 0))
     }
 
     const scrollRight = (e) => {
-        setOffset(Math.min(offset + 1, maxOffset))
+        setOffset(prev => Math.min(prev + 1, maxOffset))
     }
 
     return (

@@ -18,10 +18,12 @@ const ButtonWrapper = ({ children, title }) => {
 
 export default function AllCategoryButtons() {
     const style = {
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center',
+        gap: '5rem',
     }
 
     return (
@@ -34,9 +36,6 @@ export default function AllCategoryButtons() {
             </ButtonWrapper>
             <ButtonWrapper title="Cameras">
                 <CameraSvg />
-            </ButtonWrapper>
-            <ButtonWrapper title="Headphones">
-                <HeadphonesSvg />
             </ButtonWrapper>
             <ButtonWrapper title="Gaming">
                 <GamingSvg />

@@ -7,9 +7,11 @@ export default function NewSingleArrival({ title, body, shopLink, imageUrl, cont
     return (
         <div className={combineClasses(["single-new-arrival-container", `container-${containerNum}`])}>
             <img src={imageUrl} />
-            <div>{title}</div>
-            <div>{body}</div>
-            <ShopNow link={shopLink} />
+            <div>
+                <div>{title}</div>
+                <div>{body}</div>
+                <ShopNow link={shopLink} />
+            </div>
         </div>
     )
 }

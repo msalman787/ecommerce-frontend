@@ -1,4 +1,5 @@
 .single-new-arrival-container {
+    background-color: black;
     color: var(--text-white);
     border-radius: 0.25rem;
     display: flex;
@@ -10,14 +11,23 @@
 
 .single-new-arrival-container img {
     object-fit: contain;
-    width: 100%;
+    width: 90%;
     height: 100%;
     position: absolute;
     bottom: 0;
-    left: 2rem;
+    right: -1rem;
+}
+.single-new-arrival-container > div {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
 
-.single-new-arrival-container div:nth-child(1) {
+.single-new-arrival-container > div > div {
+    margin: 0.4rem;
+}
+
+.single-new-arrival-container > div > div:nth-child(1) {
     font-family: "Inter-Regular";
     font-size: 1.5rem;
     font-style: normal;
@@ -26,7 +36,7 @@
     letter-spacing: 0.045rem;
 }
 
-.single-new-arrival-container div:nth-child(2){
+.single-new-arrival-container > div > div:nth-child(2){
     font-family: "Poppins-Regular";
     font-size: 0.875rem;
     font-style: normal;

@@ -2,7 +2,7 @@ import ProductCard from './ProductCard'
 import "../stylesheets/HorizontalProductBar.css"
 
 
-export default function HorizontalProductBar({ offset, offsetWidth, products }) {
+export default function HorizontalProductBar({ offset, offsetWidth, products, maxTranslateX }) {
 
     return (
         <div className="horizontal-product-bar">
@@ -11,7 +11,7 @@ export default function HorizontalProductBar({ offset, offsetWidth, products }) 
                     <ProductCard
                         key={i}
                         {...product}
-                        style={{ transform: `translateX(-${offset * offsetWidth}px)` }}
+                        style={{ transform: `translateX(-${Math.min(offset * offsetWidth, maxTranslateX)}px)` }}
                     />
                 )
             })}
