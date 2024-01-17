@@ -90,10 +90,10 @@ const ProductImage = ({ clickFn, imageUrl, discount }) => {
     )
 }
 
-export default function ProductCard({ clickFn = () => { }, discount, price, title, image, num_rating, rating }) {
+export default function ProductCard({ clickFn = () => { }, discount, price, title, image, num_rating, rating, style }) {
 
     return (
-        <div className="product-card">
+        <div className="product-card" style={style}>
             <ProductImage discount={discount} imageUrl={image} clickFn={clickFn} />
             <div className="info-card">
                 <h1 className="product-card-title" onClick={clickFn}>{title}</h1>

@@ -12,5 +12,5 @@ export function getHours(sec) {
 }
 
 export function getDays(sec) {
-    return Math.min(Math.floor(sec / (3600 * 24)), 99)
+    return Math.floor(sec / (3600 * 24)) % 31
 }

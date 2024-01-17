@@ -1,14 +1,12 @@
 import SlidingImageCard from "./SlidingImageCard"
 import SidePanel from "./SidePanel"
-import ProductCard from "./ProductCard"
 import RedButton from "./RedButton"
 import CountDown from "./CountDown"
 import CategoryTitle from "./CategoryTitle"
-import MoveButton from "./MoveButton"
-import Footer from "./Footer"
 import NewArrivals from "./NewArrivals"
 import ButtomIcons from "./BottomIcons"
-import ProductView from "./ProductView"
+import HorizontalScrollBar from "./HorizontalScrollBar"
+import AllCategoryButtons from "./AllCategoryButtons"
 
 import { fetchFlyers } from "../services/fetchFlyers"
 import { useQuery } from "@tanstack/react-query"
@@ -35,21 +33,37 @@ export default function Home({ products }) {
                 <SidePanel />
                 <SlidingImageCard imageUrls={mainFlyers.data.map(obj => obj['image'])} width="70vw" height="21.5rem" />
             </div>
-            <div className="today-card">
-                <CategoryTitle topTitle="Today's" bottomTitle="" />
-                <CountDown />
-            </div>
-            <div>
-                <ProductView products={products.data} />
-            </div>
-            <ProductCard price={200} discount={0.8} title="hello" imageUrl="#" reviewNum={94} reviewRating={3.3} />
-            <RedButton text="hello there" />
-            <CategoryTitle topTitle="top title" bottomTitle="bottom title" />
-            <MoveButton direction="left" />
-            <MoveButton direction="right" />
-            <NewArrivals />
+            <article className="today-card">
+                <div className="title-wrapper">
+                    <CategoryTitle topTitle="Today's" bottomTitle="Flash Sale" />
+                    <CountDown />
+                </div>
+                <HorizontalScrollBar products={products.data.filter(product => product.discount < 1)} offsetWidth={200} />
+            </article>
+            <article className="category-card">
+                <div className="title-wrapper">
+                    <CategoryTitle topTitle="Categories" bottomTitle="Browse By Category" />
+                </div>
+                <AllCategoryButtons />
+            </article>
+            <article className="best-selling-card">
+                <div className="title-wrapper">
+                    <CategoryTitle topTitle="This months" bottomTitle="Best Selling Products" />
+                    <RedButton text="View All" />
+                </div>
+            </article>
+            <article className="our-products-card">
+                <div className="title-wrapper">
+                    <CategoryTitle topTitle="Our products" bottomTitle="Explore our products" />
+                </div>
+            </article>
+            <article className="new-arrivals-card">
+                <div className="title-wrapper">
+                    <CategoryTitle topTitle="Featured" bottomTitle="New Arrivals" />
+                </div>
+                <NewArrivals />
+            </article>
             <ButtomIcons />
-            <Footer />
         </div>
     )
 }

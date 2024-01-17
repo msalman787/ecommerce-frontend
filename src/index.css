@@ -16,6 +16,12 @@
     url("./fonts/Inter-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"),
+    url("./fonts/Inter-Bold.ttf") format("truetype");
+}
+
 
 :root {
   font-size: 16px;
@@ -57,6 +63,7 @@ a:hover {
 }
 
 body {
+  width: 100%;
   margin: 0;
   padding: 0;
   display: flex;

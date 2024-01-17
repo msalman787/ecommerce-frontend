@@ -7,6 +7,7 @@ import "./fonts/Poppins-Regular.ttf"
 
 import NavBar from './Components/NavBar'
 import Home from './Components/Home'
+import Footer from './Components/Footer'
 import WishList from './Components/WishList'
 
 import { fetchAllProducts } from './services/fetchProducts'
@@ -24,6 +25,7 @@ function App() {
       <NavBar />
       <Home products={products} />
       {/* <WishList /> */}
+      <Footer />
     </>
   )
 }
