@@ -83,6 +83,10 @@
     top: 0.75rem;
 }
 
+.heart:hover {
+    background-color: pink;
+}
+
 .watch-eye {
     top: 3.1rem;
 }

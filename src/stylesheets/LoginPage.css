@@ -1,0 +1,113 @@
+.login-page {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    padding: 15vw 0;
+}
+
+.login-page .flyer {
+    position: relative;
+    width: 54%;
+    height: 40vh;
+    background-color: #CBE4E8;
+    overflow: hidden;
+}
+
+.login-page .flyer img {
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+    bottom: 0;
+    left: 0;
+}
+
+.login-page .form {
+    flex: 1;
+}
+
+.login-page form input {
+    width: 100%;
+    background: none;
+    margin: 1.1rem 0;
+    padding: 0.5rem;
+    border: none;
+
+    color: var(--Text2, #000);
+
+    /* Title/16PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+
+    border-bottom: 1px solid rgb(0,0,0,0.5);
+}
+
+
+.login-page form input:valid:focus {
+    background-color: rgb(236, 255, 236);
+}
+
+.login-page form input:invalid:focus {
+    background-color: rgb(255, 244, 246);
+}
+
+.login-page form input:placeholder-shown {
+    background-color: white;
+}
+
+form.login {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+form.login h1 {
+    color: var(--Text2, #000);
+
+/* Heading/36PX Medium */
+    font-family: "Inter-Regular";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 83.333% */
+    letter-spacing: 1.44px;
+
+    margin: 0;
+}
+
+form.login h2 {
+    color: var(--Text2, #000);
+
+    /* Title/16PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+form.login p {
+    color: rgb(0,0,0,0.5);
+
+    /* Title/16PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+}
+
+form.login span{
+    font-weight: 600;
+    text-decoration: underline;
+    transition: all 0.3
+}
+
+form.login span:hover {
+    cursor: pointer;
+    color: black;
+}

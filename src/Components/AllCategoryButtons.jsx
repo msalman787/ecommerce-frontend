@@ -1,7 +1,6 @@
 import PhoneSvg from './svgComponents/PhoneSvg';
 import ComputerSvg from './svgComponents/ComputerSvg';
 import CameraSvg from './svgComponents/CameraSvg';
-import HeadphonesSvg from './svgComponents/HeadphonesSvg';
 import GamingSvg from './svgComponents/GamingSvg';
 
 import "../stylesheets/AllCategoryButtons.css";

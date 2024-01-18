@@ -1,7 +1,7 @@
 .all-category-buttons .button-wrapper {
     border: solid 3px rgb(0,0,0,0.9);
-    width: 9rem;
-    height: 7rem;
+    width: 11rem;
+    height: 9rem;
     border-radius: 1rem;
     cursor: pointer;
 }

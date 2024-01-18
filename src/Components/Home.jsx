@@ -10,7 +10,6 @@ import AllCategoryButtons from "./AllCategoryButtons"
 
 import { fetchFlyers } from "../services/fetchFlyers"
 import { useQuery } from "@tanstack/react-query"
-import { useQueryClient } from "@tanstack/react-query"
 
 import "../stylesheets/Home.css"
 import ProductView from "./ProductView"
