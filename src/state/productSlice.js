@@ -42,23 +42,30 @@ const productSlice = createSlice({
             const id = action.payload
             const product = state.products.filter(product => product.id === id)
             if (product) {
-                state.cart.push({ ...product, quantity: 1 })
+                const newProduct = { ...product, quantity: 1 }
+                state.cart.push(newProduct)
             }
         },
         cartRemoveOne(state, action) {
             const id = action.payload
-            const index = state.cart.find(product => product.id === id)
-            if (index) {
-                if (state.cart[index].quantity > 1) {
-                    state.cart[index].quantity -= 1
-                } else {
-                    state.cart = state.cart.filter(product => product.id !== id)
+            state.cart.forEach(product => {
+                if (product[0].id === id) {
+                    product['quantity'] -= 1
                 }
-            }
+            })
         },
         cartRemove(state, action) {
             const id = action.payload
-            state.cart = state.cart.filter(product => product.id !== id)
+            state.cart = state.cart.filter(product => product[0].id !== id)
+        },
+        cartSetOne(state, action) {
+            const { id, quantity } = action.payload
+            console.log("id", id, quantity)
+            state.cart.forEach(product => {
+                if (product[0].id === id) {
+                    product['quantity'] = quantity
+                }
+            })
         },
         cartClear(state) {
             state.cart = []
@@ -66,5 +73,5 @@ const productSlice = createSlice({
     }
 })
 
-export const { wishlistAdd, wishlistRemove, wishlistReplace, wishlistToggle, productsReplace, cartAddOne, cartRemoveOne, cartClear, cartRemove } = productSlice.actions
+export const { wishlistAdd, wishlistRemove, wishlistReplace, wishlistToggle, productsReplace, cartAddOne, cartRemoveOne, cartClear, cartRemove, cartSetOne } = productSlice.actions
 export default productSlice.reducer

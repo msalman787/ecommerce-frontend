@@ -15,7 +15,7 @@ export default function WishList({ }) {
 
     const moveAllToCart = (e) => {
         wishlist.forEach(product => {
-            dispatch(cartAddOne(product))
+            dispatch(cartAddOne(product.id))
         })
     }
 
