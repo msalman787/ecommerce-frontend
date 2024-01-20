@@ -9,6 +9,8 @@ import LoginPage from './Components/LoginPage'
 import ShoppingCart from './Components/ShoppingCart'
 import CheckOutPage from './Components/CheckOutPage'
 import ProductPage from './Components/ProductPage'
+import ContactUs from './Components/ContactUs'
+
 import Footer from './Components/Footer'
 
 import { fetchAllProducts } from './services/fetchProducts'
@@ -36,7 +38,8 @@ function App() {
       {/* <WishList /> */}
       {/* <ShoppingCart /> */}
       {/* <CheckOutPage /> */}
-      <ProductPage product={products[0]} />
+      {/* <ProductPage product={products[0]} /> */}
+      <ContactUs />
       <Footer />
     </>
   )

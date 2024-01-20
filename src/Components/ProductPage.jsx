@@ -7,15 +7,17 @@ import ProductView from "./ProductView";
 import "../stylesheets/ProductPage.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { cartAddOne, cartSetOne } from "../state/productSlice";
+import { cartAddOne, cartSetOne, wishlistToggle } from "../state/productSlice";
 import { useState } from "react";
 import Stars from "./Stars";
 
-const Input = ({ type, name, value, label, changeFn }) => {
+const Input = ({ type, name, value, label, changeFn, style, checked }) => {
     return (
-        <div>
-            <label htmlFor={name}>{label}</label>
-            <input type={type} name={name} value={value} onChange={changeFn} />
+        <div className="custom-input">
+            <label >{label}
+                <input type={type} name={name} value={value} onChange={changeFn} defaultChecked={checked} />
+                <span className="checkmark" style={style}></span>
+            </label>
         </div>
     )
 }
@@ -24,8 +26,8 @@ const InfoPanel = ({ children, title, description, descriptionLink, link }) => {
     return (
         <div className="info-panel">
             {children}
-            <div>
-                <div>{title}</div>
+            <div style={{ flex: '1' }}>
+                <h1>{title}</h1>
                 <div>{description}<a src={link}>{descriptionLink}</a></div>
             </div>
         </div>
@@ -34,11 +36,19 @@ const InfoPanel = ({ children, title, description, descriptionLink, link }) => {
 
 const QuantitySetter = ({ quantity, setQuantity }) => {
 
+    return (
+        <div className="quantity-setter">
+            <div className="center-child" onClick={e => setQuantity(prev => (prev - 1) > 0 ? prev - 1 : 1)}>-</div>
+            <div className="center-child">{quantity}</div>
+            <div className="center-child" onClick={e => setQuantity(prev => prev + 1)}>+</div>
+        </div>
+    )
 }
 
 export default function ProductPage({ product }) {
     const [quantity, setQuantity] = useState(1)
     const products = useSelector(state => state.product.products)
+    const wishlist = useSelector(state => state.product.wishlist)
     const dispatch = useDispatch()
 
     const handleBuy = (e) => {
@@ -50,10 +60,10 @@ export default function ProductPage({ product }) {
     return (
         <div className="product-page-container">
             <div className="product-showcase-wrapper">
-                <div className="image-wrapper center-child">
+                <div className="image-wrapper center-child" style={{ flex: '1' }}>
                     <img src={product.image} />
                 </div>
-                <form className="product-info">
+                <form className="product-info" style={{ flex: '1' }}>
                     <h1>{product.title}</h1>
                     <div className="review-info">
                         <Stars reviewNum={product.num_rating} reviewRating={product.rating} />
@@ -63,26 +73,32 @@ export default function ProductPage({ product }) {
                             <span className="cross-text">{product.price}</span>
                         }
                     </div>
-                    <div>{product.description}</div>
+                    <div>{product.description.slice(0, 200)}</div>
                     <div className="colours">Colours:
-                        <input type="radio" name="colour" value="red" />
-                        <input type="radio" name="colour" value="blue" />
+                        <Input type="radio" name="colour" value="red" style={{ backgroundColor: '#E07575' }} checked={true} />
+                        <Input type="radio" name="colour" value="blue" style={{ backgroundColor: '#A0BCE0' }} />
                     </div>
-                    <div className="sizes">Sizes:
-                        <Input type="radio" name="size" value="extra-small" label="XS" />
-                        <Input type="radio" name="size" value="small" label="S" />
-                        <Input type="radio" name="size" value="medium" label="M" />
-                        <Input type="radio" name="size" value="large" label="L" />
-                        <Input type="radio" name="size" value="extra-large" label="XL" />
+                    <div className="sizes">
+                        <div style={{ marginRight: '1rem' }}>Sizes:</div>
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <Input type="radio" name="size" value="extra-small" label="XS" />
+                            <Input type="radio" name="size" value="small" label="S" />
+                            <Input type="radio" name="size" value="medium" label="M" checked={true} />
+                            <Input type="radio" name="size" value="large" label="L" />
+                            <Input type="radio" name="size" value="extra-large" label="XL" />
+                        </div>
                     </div>
-                    <div>
+                    <div style={{ width: '100%', height: '4.4rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
                         <QuantitySetter quantity={quantity} setQuantity={setQuantity} />
-                        <RedButton text="Buy Now" clickFn={handleBuy} />
-                        <div>
+                        <RedButton text="Buy Now" height={"70%"} clickFn={handleBuy} />
+                        <div className="heart-wrapper center-child"
+                            onClick={e => dispatch(wishlistToggle(product.id))}
+                            style={wishlist.find(x => x.id === product.id) ?
+                                { stroke: 'var(--main-red)', fill: 'var(--main-red)' } : {}}>
                             <HeartSvg />
                         </div>
                     </div>
-                    <div>
+                    <div className="info-panels">
                         <InfoPanel title="Free Delivery" descriptionLink="Enter your postal code for Delivery Availability">
                             <CarDeliverySvg />
                         </InfoPanel>
