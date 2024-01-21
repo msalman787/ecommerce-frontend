@@ -10,14 +10,14 @@ import ShoppingCart from './Components/ShoppingCart'
 import CheckOutPage from './Components/CheckOutPage'
 import ProductPage from './Components/ProductPage'
 import ContactUs from './Components/ContactUs'
-
+import NotFoundPage from './Components/NotFoundPage'
 import Footer from './Components/Footer'
+import ProductView from './Components/ProductView'
 
 import { fetchAllProducts } from './services/fetchProducts'
 import { useSelector } from 'react-redux'
 import { useQuery } from '@tanstack/react-query'
-
-
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const { isPending, data } = useQuery({
@@ -26,20 +26,23 @@ function App() {
     refetchOnWindowFocus: false,
     staleTime: Infinity,
   })
-  const products = useSelector(state => state.product.products)
 
 
   if (isPending) return <div>Loading...</div>
   return (
     <>
       <NavBar />
-      {/* <Home products={products} /> */}
-      {/* <LoginPage /> */}
-      {/* <WishList /> */}
-      {/* <ShoppingCart /> */}
-      {/* <CheckOutPage /> */}
-      {/* <ProductPage product={products[0]} /> */}
-      <ContactUs />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/wishlist" element={<WishList />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/products" element={<ProductView showAll={true} />} />
+        <Route path="/products/:id" element={<ProductPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </>
   )

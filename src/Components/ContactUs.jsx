@@ -1,16 +1,12 @@
 import "../stylesheets/ContactUs.css";
 import RedButton from "./RedButton";
-
-const Input = (props) => {
-    return (
-        <input {...props} />
-    )
-}
+import OldPhoneSvg from "./svgComponents/OldPhoneSvg";
+import MailSvg from "./svgComponents/MailSvg";
 
 export default function ContactUs() {
     return (
-        <div>
-            <div className="contact-us-container">
+        <div className="center-child" style={{ width: '100vw', height: '100%', margin: '5rem', padding: '0' }}>
+            <div className="contact-us-container" style={{ margin: '0', padding: '0' }}>
                 <div className="left-panel">
                     <div>
                         <div>
@@ -24,6 +20,7 @@ export default function ContactUs() {
                             Phone: +8801611112222
                         </div>
                     </div>
+                    <div style={{ width: '100%', height: '0', border: '1px solid rgb(0,0,0,0.5)' }}></div>
                     <div>
                         <div>
                             <MailSvg />
@@ -40,15 +37,17 @@ export default function ContactUs() {
                         </div>
                     </div>
                 </div>
-                <form>
-                    <div>
-                        <Input type="text" placeholder="Your Name" />
-                        <Input type="email" placeholder="Your Email" />
-                        <Input type="number" placeholder="Your Phone" pattern="" />
+                <div className="right-panel">
+                    <div >
+                        <input type="text" placeholder="Your Name" />
+                        <input type="email" placeholder="Your Email" />
+                        <input type="number" placeholder="Your Phone" pattern="" />
                     </div>
-                    <Input type="text" placeholder="Name" />
+                    <div>
+                        <textarea type="textarea" placeholder="Message" />
+                    </div>
                     <RedButton text="Send Message" clickFn={() => { }} />
-                </form>
+                </div>
             </div>
         </div>
     )

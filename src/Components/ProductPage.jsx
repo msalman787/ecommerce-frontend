@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartAddOne, cartSetOne, wishlistToggle } from "../state/productSlice";
 import { useState } from "react";
 import Stars from "./Stars";
+import { useParams } from "react-router-dom";
 
 const Input = ({ type, name, value, label, changeFn, style, checked }) => {
     return (
@@ -49,6 +50,8 @@ export default function ProductPage({ product }) {
     const [quantity, setQuantity] = useState(1)
     const products = useSelector(state => state.product.products)
     const wishlist = useSelector(state => state.product.wishlist)
+    const { id } = useParams()
+    product = product ? product : products.find(x => x.id === Number(id))
     const dispatch = useDispatch()
 
     const handleBuy = (e) => {

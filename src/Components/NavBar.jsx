@@ -2,12 +2,21 @@ import HeartSvg from './svgComponents/HeartSvg'
 import ShoppingCartSvg from './svgComponents/ShoppingCartSvg'
 import SearchSvg from './svgComponents/SearchSvg'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import "../stylesheets/NavBar.css"
 
 const Searchbar = () => {
     const [search, setSearch] = useState("")
+    const [searchResults, setSearchResults] = useState([])
+    const products = useSelector(state => state.product.products)
+
+    useEffect(() => {
+        const results = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+        setSearchResults(results)
+    }, [search])
 
     const handleSearch = (e) => {
         setSearch(e.target.value)
@@ -23,17 +32,18 @@ const Searchbar = () => {
 
 
 export default function NavBar() {
+
     return (
         <nav className="nav-bar">
             <div className='special-text-logo'>Exclusive</div>
             <div className="headers center-child">
-                <header>Home</header>
-                <header>Contact</header>
-                <header>About</header>
-                <header>Sign Up</header>
+                <header><NavLink to="/">Home</NavLink></header>
+                <header><NavLink to="/contact">Contact</NavLink></header>
+                <header><NavLink to="/products">Product</NavLink></header>
+                <header><NavLink to="/login">Sign up</NavLink></header>
             </div>
-            <Searchbar />
-            <div className='center-child'>
+            <div className='nav-search'>
+                <Searchbar />
                 <HeartSvg />
                 <ShoppingCartSvg />
             </div>

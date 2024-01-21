@@ -3,13 +3,15 @@ import "../stylesheets/ProductView.css"
 import ProductCard from "./ProductCard"
 import MultiRowProduct from "./MultiRowProduct"
 import ScrollWrapper from "./ScrollWrapper"
+import { useSelector } from "react-redux"
 
 export default function ProductView({ showAll = false, numRows = 2, numCols = 4, products }) {
+    const allProducts = useSelector(state => state.product.products)
 
     if (showAll) {
         return (
             <div className="product-view" style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 1fr)` }}>
-                {products.map((product, i) => {
+                {allProducts.map((product, i) => {
                     return (
                         <div key={i} className="product-view-row">
                             <ProductCard {...product} />

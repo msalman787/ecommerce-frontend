@@ -13,18 +13,21 @@ import { useQuery } from "@tanstack/react-query"
 
 import "../stylesheets/Home.css"
 import ProductView from "./ProductView"
+import { useSelector } from "react-redux"
 
-export default function Home({ products }) {
+export default function Home() {
     const mainFlyers = useQuery({
         queryKey: ['mainFlyers'],
         queryFn: fetchFlyers('main'),
         refetchOnWindowFocus: false,
     })
+    const products = useSelector(state => state.product.products)
 
     if (mainFlyers.isPending || products === undefined || products.isPending) {
         return <div>Loading...</div>
     }
 
+    console.log(products)
     return (
         <div className="home">
             <div className="main">
@@ -36,7 +39,7 @@ export default function Home({ products }) {
                     <CategoryTitle topTitle="Today's" bottomTitle="Flash Sale" />
                     <CountDown />
                 </div>
-                <HorizontalScrollBar products={products.data.filter(product => product.discount < 1)} />
+                <HorizontalScrollBar products={products.filter(product => product.discount < 1)} />
             </article>
             <article className="category-card">
                 <div className="title-wrapper">
@@ -48,14 +51,14 @@ export default function Home({ products }) {
                 <div className="title-wrapper">
                     <CategoryTitle topTitle="This months" bottomTitle="Best Selling Products" />
                 </div>
-                <HorizontalScrollBar products={products.data.filter(product => product.id > 5)} />
+                <HorizontalScrollBar products={products.filter(product => product.id > 5)} />
                 <RedButton text="View All" />
             </article>
             <article className="our-products-card">
                 <div className="title-wrapper">
                     <CategoryTitle topTitle="Our products" bottomTitle="Explore our products" />
                 </div>
-                <ProductView products={products.data} />
+                <ProductView products={products} />
                 <RedButton text="Shop all products" />
             </article>
             <article className="new-arrivals-card">

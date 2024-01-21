@@ -1,0 +1,116 @@
+.contact-us-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    height: 40%;
+    width: 70%;
+    gap: 2rem;
+
+    color: var(--Text2, #000);
+
+    /* Title/14PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3125rem; /* 150% */
+}
+
+.contact-us-container h1 {
+    color: #000;
+
+    /* Title/16PX Medium */
+    font-family: "Poppins-Bold";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /* 150% */
+}
+
+.contact-us-container svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.contact-us-container > div {
+    border-radius: 4px;
+    background: var(--Primary, #FFF);
+
+    /* Categogy/5 */
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.contact-us-container .left-panel {
+    display: inline-flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 2rem;
+}
+
+.contact-us-container .left-panel > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* margin: 1rem 0; */
+}
+
+.contact-us-container .left-panel > div > div:nth-child(1) {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.contact-us-container .right-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.contact-us-container .right-panel > div {
+    width: 100%;
+}
+
+.contact-us-container .right-panel > div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.contact-us-container .right-panel > div:nth-child(1) > div {
+    flex: 1;
+}
+
+.contact-us-container .right-panel > div:nth-child(2) {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.contact-us-container .right-panel input, textarea {
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    background: var(--Secondary, #F5F5F5);
+    padding: 0.5rem 1rem;
+
+    color: var(--Text2, #000);
+
+    /* Title/16PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    opacity: 0.5;
+}
+
+.contact-us-container .right-panel button {
+    align-self: end;
+}
