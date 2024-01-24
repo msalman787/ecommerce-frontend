@@ -4,7 +4,7 @@
     justify-content: start;
     align-items: stretch;
     gap: 4rem;
-    width: 85vw;
+    width: 80vw;
 
     color: #000;
 
@@ -175,6 +175,10 @@ div.sizes div.custom-input:hover {
     background-color: #F5F5F5;
 }
 
+div.sizes span.checkmark {
+    display: none;
+}
+
 .quantity-setter {
     display: flex;
     flex-direction: row;
@@ -230,7 +234,6 @@ div.sizes div.custom-input:hover {
 }
 
 .info-panels {
-    width: 100%;
     height: 11.25rem;
     flex-shrink: 0;
     border-radius: 0.25rem;
@@ -239,7 +242,7 @@ div.sizes div.custom-input:hover {
     flex-direction: column;
     justify-content: start;
     align-items: stretch;
-    align-self: center;
+    align-self: start;
 }
 
 .info-panel {
@@ -250,7 +253,8 @@ div.sizes div.custom-input:hover {
     justify-content: start;
     gap: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.50);
-    /* padding: 1rem; */
+    padding-right: 1rem;
+    stroke: black
 }
 
 .info-panel h1 {
@@ -277,4 +281,10 @@ div.sizes div.custom-input:hover {
 
 .info-panel svg {
     margin: 1rem;
+}
+
+span.cross-text {
+    opacity: 0.5;
+    text-decoration: line-through;
+    padding-left: 0.5rem;
 }

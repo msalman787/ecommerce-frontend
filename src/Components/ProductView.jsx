@@ -5,7 +5,7 @@ import MultiRowProduct from "./MultiRowProduct"
 import ScrollWrapper from "./ScrollWrapper"
 import { useSelector } from "react-redux"
 
-export default function ProductView({ showAll = false, numRows = 2, numCols = 4, products }) {
+export default function ProductView({ showAll = false, numRows = 2, numCols = 4, products, showButtons }) {
     const allProducts = useSelector(state => state.product.products)
 
     if (showAll) {
@@ -22,7 +22,7 @@ export default function ProductView({ showAll = false, numRows = 2, numCols = 4,
         )
     } else {
         return (
-            <ScrollWrapper maxOffset={Math.floor(products.length / (numRows * numCols))}>
+            <ScrollWrapper maxOffset={Math.floor(products.length / (numRows * numCols))} showButtons={showButtons}>
                 <MultiRowProduct products={products} numRows={numRows} numCols={numCols} />
             </ScrollWrapper>
         )

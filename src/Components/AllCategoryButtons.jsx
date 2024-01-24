@@ -2,13 +2,15 @@ import PhoneSvg from './svgComponents/PhoneSvg';
 import ComputerSvg from './svgComponents/ComputerSvg';
 import CameraSvg from './svgComponents/CameraSvg';
 import GamingSvg from './svgComponents/GamingSvg';
+import { useNavigate } from 'react-router-dom';
 
 import "../stylesheets/AllCategoryButtons.css";
 
 const ButtonWrapper = ({ children, title }) => {
+    const navigate = useNavigate()
 
     return (
-        <div className='center-child button-wrapper' style={{ flexDirection: 'column' }}>
+        <div className='center-child button-wrapper' style={{ flexDirection: 'column' }} onClick={() => navigate('/products')}>
             {children}
             <div>{title}</div>
         </div>

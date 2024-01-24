@@ -52,6 +52,7 @@
 .image-container img {
     width: 10.75rem;
     height: 9.5rem;
+    cursor: pointer;
 }
 
 .image-container .discount-card {
@@ -94,6 +95,7 @@
 h1.product-card-title {
     color: #000;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .product-card-price span.price-discounted {

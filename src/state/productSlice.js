@@ -4,6 +4,7 @@ const initialState = {
     products: [],
     cart: [],
     wishlist: [],
+    categories: [],
 }
 
 const productSlice = createSlice({
@@ -42,8 +43,16 @@ const productSlice = createSlice({
             const id = action.payload
             const product = state.products.filter(product => product.id === id)
             if (product) {
-                const newProduct = { ...product, quantity: 1 }
-                state.cart.push(newProduct)
+                if (state.cart.find(product => product[0].id === id)) {
+                    state.cart.forEach(product => {
+                        if (product[0].id === id) {
+                            product['quantity'] += 1
+                        }
+                    })
+                } else {
+                    const newProduct = { ...product, quantity: 1 }
+                    state.cart.push(newProduct)
+                }
             }
         },
         cartRemoveOne(state, action) {
@@ -60,7 +69,6 @@ const productSlice = createSlice({
         },
         cartSetOne(state, action) {
             const { id, quantity } = action.payload
-            console.log("id", id, quantity)
             state.cart.forEach(product => {
                 if (product[0].id === id) {
                     product['quantity'] = quantity
@@ -69,9 +77,15 @@ const productSlice = createSlice({
         },
         cartClear(state) {
             state.cart = []
+        },
+        obtainCategories(state) {
+            const m = {}
+            state.products.forEach(product => m[product.category] = 1)
+            state.categories = Object.keys(m)
+            console.log("categories", state.categories)
         }
     }
 })
 
-export const { wishlistAdd, wishlistRemove, wishlistReplace, wishlistToggle, productsReplace, cartAddOne, cartRemoveOne, cartClear, cartRemove, cartSetOne } = productSlice.actions
+export const { wishlistAdd, wishlistRemove, wishlistReplace, wishlistToggle, productsReplace, cartAddOne, cartRemoveOne, cartClear, cartRemove, cartSetOne, obtainCategories } = productSlice.actions
 export default productSlice.reducer

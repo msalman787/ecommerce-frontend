@@ -61,58 +61,60 @@ export default function ProductPage({ product }) {
     }
 
     return (
-        <div className="product-page-container">
-            <div className="product-showcase-wrapper">
-                <div className="image-wrapper center-child" style={{ flex: '1' }}>
-                    <img src={product.image} />
+        <div className="center-child">
+            <div className="product-page-container">
+                <div className="product-showcase-wrapper">
+                    <div className="image-wrapper center-child" style={{ flex: '1' }}>
+                        <img src={product.image} />
+                    </div>
+                    <form className="product-info" style={{ flex: '1' }}>
+                        <h1>{product.title}</h1>
+                        <div className="review-info">
+                            <Stars reviewNum={product.num_rating} reviewRating={product.rating} />
+                        </div>
+                        <div className="price">${Math.round((product.price * product.discount) * 100) / 100}
+                            {product.discount < 1 &&
+                                <span className="cross-text">{product.price}</span>
+                            }
+                        </div>
+                        <div>{product.description.slice(0, 200)}</div>
+                        <div className="colours">Colours:
+                            <Input type="radio" name="colour" value="red" style={{ backgroundColor: '#E07575' }} checked={true} />
+                            <Input type="radio" name="colour" value="blue" style={{ backgroundColor: '#A0BCE0' }} />
+                        </div>
+                        <div className="sizes">
+                            <div style={{ marginRight: '1rem' }}>Sizes:</div>
+                            <div style={{ display: 'flex', gap: '1rem' }}>
+                                <Input type="radio" name="size" value="extra-small" label="XS" />
+                                <Input type="radio" name="size" value="small" label="S" />
+                                <Input type="radio" name="size" value="medium" label="M" checked={true} />
+                                <Input type="radio" name="size" value="large" label="L" />
+                                <Input type="radio" name="size" value="extra-large" label="XL" />
+                            </div>
+                        </div>
+                        <div style={{ width: '100%', height: '4.4rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                            <QuantitySetter quantity={quantity} setQuantity={setQuantity} />
+                            <RedButton text="Buy Now" height={"70%"} clickFn={handleBuy} />
+                            <div className="heart-wrapper center-child"
+                                onClick={e => dispatch(wishlistToggle(product.id))}
+                                style={wishlist.find(x => x.id === product.id) ?
+                                    { stroke: 'var(--main-red)', fill: 'var(--main-red)' } : {}}>
+                                <HeartSvg />
+                            </div>
+                        </div>
+                        <div className="info-panels">
+                            <InfoPanel title="Free Delivery" descriptionLink="Enter your postal code for Delivery Availability">
+                                <CarDeliverySvg />
+                            </InfoPanel>
+                            <InfoPanel title="Return Delivery" description="Free 30 Days Delivery Returns. " descriptionLink="Details">
+                                <ReturnIconSvg />
+                            </InfoPanel>
+                        </div>
+                    </form>
                 </div>
-                <form className="product-info" style={{ flex: '1' }}>
-                    <h1>{product.title}</h1>
-                    <div className="review-info">
-                        <Stars reviewNum={product.num_rating} reviewRating={product.rating} />
-                    </div>
-                    <div className="price">${Math.round((product.price * product.discount) * 100) / 100}
-                        {product.discount < 1 &&
-                            <span className="cross-text">{product.price}</span>
-                        }
-                    </div>
-                    <div>{product.description.slice(0, 200)}</div>
-                    <div className="colours">Colours:
-                        <Input type="radio" name="colour" value="red" style={{ backgroundColor: '#E07575' }} checked={true} />
-                        <Input type="radio" name="colour" value="blue" style={{ backgroundColor: '#A0BCE0' }} />
-                    </div>
-                    <div className="sizes">
-                        <div style={{ marginRight: '1rem' }}>Sizes:</div>
-                        <div style={{ display: 'flex', gap: '1rem' }}>
-                            <Input type="radio" name="size" value="extra-small" label="XS" />
-                            <Input type="radio" name="size" value="small" label="S" />
-                            <Input type="radio" name="size" value="medium" label="M" checked={true} />
-                            <Input type="radio" name="size" value="large" label="L" />
-                            <Input type="radio" name="size" value="extra-large" label="XL" />
-                        </div>
-                    </div>
-                    <div style={{ width: '100%', height: '4.4rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                        <QuantitySetter quantity={quantity} setQuantity={setQuantity} />
-                        <RedButton text="Buy Now" height={"70%"} clickFn={handleBuy} />
-                        <div className="heart-wrapper center-child"
-                            onClick={e => dispatch(wishlistToggle(product.id))}
-                            style={wishlist.find(x => x.id === product.id) ?
-                                { stroke: 'var(--main-red)', fill: 'var(--main-red)' } : {}}>
-                            <HeartSvg />
-                        </div>
-                    </div>
-                    <div className="info-panels">
-                        <InfoPanel title="Free Delivery" descriptionLink="Enter your postal code for Delivery Availability">
-                            <CarDeliverySvg />
-                        </InfoPanel>
-                        <InfoPanel title="Return Delivery" description="Free 30 Days Delivery Returns. " descriptionLink="Details">
-                            <ReturnIconSvg />
-                        </InfoPanel>
-                    </div>
-                </form>
+                <CategoryTitle topTitle="Related items" />
+                <ProductView showAll={false} products={products.slice(0, 4)} />
             </div>
-            <CategoryTitle topTitle="Related items" />
-            <ProductView showAll={false} products={products.slice(0, 4)} />
         </div>
     )
 }

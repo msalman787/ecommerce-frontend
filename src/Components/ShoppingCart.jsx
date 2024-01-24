@@ -4,6 +4,7 @@ import { cartRemove, cartSetOne } from "../state/productSlice"
 import GrayButton from "./GrayButton"
 import "../stylesheets/ShoppingCart.css"
 import RedButton from "./RedButton"
+import { useNavigate } from "react-router-dom"
 
 const ChangeQuantity = ({ product }) => {
     const dispatch = useDispatch()
@@ -33,6 +34,7 @@ const DeleteButton = ({ product }) => {
 
 export default function ShoppingCart() {
     const cart = useSelector(state => state.product.cart)
+    const navigate = useNavigate()
 
     if (cart.length <= 0) {
         return (
@@ -67,13 +69,13 @@ export default function ShoppingCart() {
                         )
                     })}
                 </div>
-                <GrayButton text="Continue Shopping" clickFn={() => { }} />
+                <GrayButton text="Continue Shopping" clickFn={() => { navigate("/") }} />
                 <div className="cart-total">
                     <h1>Cart Total</h1>
                     <div><p>Subtotal:</p><p>${cart.reduce((prev, cur) => prev + cur[0].price * cur[0].discount * cur['quantity'], 0)}</p></div>
                     <div><p>Shipping:</p><p>Free</p></div>
                     <div><p>Total:</p><p>${cart.reduce((prev, cur) => prev + cur[0].price * cur[0].discount * cur['quantity'], 0)}</p></div>
-                    <RedButton text="Proceed to checkout" />
+                    <RedButton text="Proceed to checkout" clickFn={() => { navigate("/checkout") }} />
                 </div>
             </div>
         </div>

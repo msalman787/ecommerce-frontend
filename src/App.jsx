@@ -11,11 +11,10 @@ import CheckOutPage from './Components/CheckOutPage'
 import ProductPage from './Components/ProductPage'
 import ContactUs from './Components/ContactUs'
 import NotFoundPage from './Components/NotFoundPage'
+import AllProductPage from './Components/AllProductPage'
 import Footer from './Components/Footer'
-import ProductView from './Components/ProductView'
 
 import { fetchAllProducts } from './services/fetchProducts'
-import { useSelector } from 'react-redux'
 import { useQuery } from '@tanstack/react-query'
 import { Route, Routes } from 'react-router-dom'
 
@@ -39,7 +38,7 @@ function App() {
         <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/products" element={<ProductView showAll={true} />} />
+        <Route path="/products" element={<AllProductPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

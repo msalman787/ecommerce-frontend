@@ -14,8 +14,11 @@ import { useQuery } from "@tanstack/react-query"
 import "../stylesheets/Home.css"
 import ProductView from "./ProductView"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 export default function Home() {
+    const navigate = useNavigate()
+
     const mainFlyers = useQuery({
         queryKey: ['mainFlyers'],
         queryFn: fetchFlyers('main'),
@@ -52,14 +55,14 @@ export default function Home() {
                     <CategoryTitle topTitle="This months" bottomTitle="Best Selling Products" />
                 </div>
                 <HorizontalScrollBar products={products.filter(product => product.id > 5)} />
-                <RedButton text="View All" />
+                <RedButton text="View All" clickFn={() => navigate('/products')} />
             </article>
             <article className="our-products-card">
                 <div className="title-wrapper">
                     <CategoryTitle topTitle="Our products" bottomTitle="Explore our products" />
                 </div>
                 <ProductView products={products} />
-                <RedButton text="Shop all products" />
+                <RedButton text="Shop all products" clickFn={() => navigate('/products')} />
             </article>
             <article className="new-arrivals-card">
                 <div className="title-wrapper">

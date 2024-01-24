@@ -111,3 +111,9 @@ form.login span:hover {
     cursor: pointer;
     color: black;
 }
+
+form.login h2.error-message {
+    color: rgb(139, 0, 0);
+    margin: 0;
+    padding: 0;
+}

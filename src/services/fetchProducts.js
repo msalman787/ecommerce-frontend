@@ -1,4 +1,4 @@
-import { productsReplace } from "../state/productSlice"
+import { productsReplace, obtainCategories } from "../state/productSlice"
 import store from "../state/store"
 
 const PRODUCT_URL = "http://ec2-34-229-171-36.compute-1.amazonaws.com/api/products/"

@@ -18,10 +18,10 @@ export default function NewArrivals() {
 
     return (
         <div className="new-arrivals-images-container">
-            <NewSingleArrival title={"PlayStation 5"} body={"Black and White version of the PS5 coming out on sale."} shopLink={"#"} imageUrl={data[1].image} containerNum={1} />
-            <NewSingleArrival title={"Women’s Collections"} body={"Featured woman collections that give you another vibe."} shopLink={"#"} imageUrl={data[2].image} containerNum={2} />
-            <NewSingleArrival title={"Speakers"} body={"Amazon wireless speakers"} shopLink={"#"} imageUrl={data[0].image} containerNum={3} />
-            <NewSingleArrival title={"Perfume"} body={"GUCCI INTENSE OUD EDP"} shopLink={"#"} imageUrl={data[3].image} containerNum={4} />
+            <NewSingleArrival title={"PlayStation 5"} body={"Black and White version of the PS5 coming out on sale."} shopLink={"/products"} imageUrl={data[1].image} containerNum={1} />
+            <NewSingleArrival title={"Women’s Collections"} body={"Featured woman collections that give you another vibe."} shopLink={"/products"} imageUrl={data[2].image} containerNum={2} />
+            <NewSingleArrival title={"Speakers"} body={"Amazon wireless speakers"} shopLink={"/products"} imageUrl={data[0].image} containerNum={3} />
+            <NewSingleArrival title={"Perfume"} body={"GUCCI INTENSE OUD EDP"} shopLink={"/products"} imageUrl={data[3].image} containerNum={4} />
         </div>
 
     )

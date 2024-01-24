@@ -25,11 +25,11 @@ export default function WishList({ }) {
                 <div className="header">
                     <h1>Wishlist ({wishlist.length})</h1>
                     <GrayButton text="Move all to shopping cart" clickFn={moveAllToCart} /></div>
-                <ProductView showAll={true} products={wishlist} />
+                <ProductView products={wishlist} />
                 <div className="header">
                     <CategoryTitle topTitle="Just for you" />
                     <GrayButton text="See all" /></div>
-                <ProductView showAll={true} products={products.slice(0, 4)} />
+                <ProductView products={products.slice(0, 8)} />
             </div>
         </div>
     )

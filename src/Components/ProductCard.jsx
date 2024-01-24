@@ -1,8 +1,10 @@
 import "../stylesheets/ProductCard.css"
 import { wishlistToggle } from "../state/productSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import Stars from "./Stars"
+import { useNavigate } from "react-router-dom"
+import { cartAddOne } from "../state/productSlice"
 
 const Heart = ({ handleClick, filled }) => {
 
@@ -15,17 +17,17 @@ const Heart = ({ handleClick, filled }) => {
     )
 }
 
-const WatchEye = ({ handleClick, filled }) => {
+// const WatchEye = ({ handleClick, filled }) => {
 
-    return (
-        <div className="watch-eye" onClick={handleClick}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill={filled ? "red" : "none"}>
-                <path d="M20.257 6.962C20.731 7.582 20.731 8.419 20.257 9.038C18.764 10.987 15.182 15 11 15C6.81801 15 3.23601 10.987 1.74301 9.038C1.51239 8.74113 1.38721 8.37592 1.38721 8C1.38721 7.62408 1.51239 7.25887 1.74301 6.962C3.23601 5.013 6.81801 1 11 1C15.182 1 18.764 5.013 20.257 6.962V6.962Z" stroke={filled ? "pink" : "black"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M11 11C12.6569 11 14 9.65685 14 8C14 6.34315 12.6569 5 11 5C9.34315 5 8 6.34315 8 8C8 9.65685 9.34315 11 11 11Z" stroke={filled ? "pink" : "black"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        </div>
-    )
-}
+//     return (
+//         <div className="watch-eye" onClick={handleClick}>
+//             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill={filled ? "red" : "none"}>
+//                 <path d="M20.257 6.962C20.731 7.582 20.731 8.419 20.257 9.038C18.764 10.987 15.182 15 11 15C6.81801 15 3.23601 10.987 1.74301 9.038C1.51239 8.74113 1.38721 8.37592 1.38721 8C1.38721 7.62408 1.51239 7.25887 1.74301 6.962C3.23601 5.013 6.81801 1 11 1C15.182 1 18.764 5.013 20.257 6.962V6.962Z" stroke={filled ? "pink" : "black"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+//                 <path d="M11 11C12.6569 11 14 9.65685 14 8C14 6.34315 12.6569 5 11 5C9.34315 5 8 6.34315 8 8C8 9.65685 9.34315 11 11 11Z" stroke={filled ? "pink" : "black"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+//             </svg>
+//         </div>
+//     )
+// }
 
 const Price = ({ price, discount }) => {
     return (
@@ -35,32 +37,39 @@ const Price = ({ price, discount }) => {
     )
 }
 
-const ProductImage = ({ id, clickFn, imageUrl, discount }) => {
+const ProductImage = ({ handleNavigate, id, imageUrl, discount }) => {
     const dispatch = useDispatch()
-    const [heartFilled, setHeartFilled] = useState(false)
+    const wishlist = useSelector(state => state.product.wishlist)
 
-    const handleClick = (e) => {
+    const handleAddCart = () => {
+        dispatch(cartAddOne(id))
+    }
+
+    const handleHeartToggle = (e) => {
         dispatch(wishlistToggle(id))
-        setHeartFilled(prev => !prev)
     }
 
     return (
-        <div className="image-container" onClick={clickFn}>
-            <div className="add-cart">Add to cart</div>
-            <img src={imageUrl} />
-            <Heart handleClick={handleClick} filled={heartFilled} />
+        <div className="image-container">
+            <div className="add-cart" onClick={handleAddCart}>Add to cart</div>
+            <img src={imageUrl} onClick={handleNavigate} />
+            <Heart handleClick={handleHeartToggle} filled={wishlist.find(p => p.id === id)} />
             {discount < 1 && <div className="discount-card">-{Math.round((1 - discount) * 100)}%</div>}
         </div>
     )
 }
 
-export default function ProductCard({ clickFn = () => { }, id, discount, price, title, image, num_rating, rating, style }) {
+export default function ProductCard({ clickFn, id, discount, price, title, image, num_rating, rating, style }) {
+    const navigate = useNavigate()
+    const handleNavigate = () => {
+        navigate(`/products/${id}`)
+    }
 
     return (
         <div className="product-card" style={style}>
-            <ProductImage id={id} discount={discount} imageUrl={image} clickFn={clickFn} />
+            <ProductImage id={id} discount={discount} imageUrl={image} handleNavigate={handleNavigate} />
             <div className="info-card">
-                <h1 className="product-card-title" onClick={clickFn}>{title}</h1>
+                <h1 className="product-card-title" onClick={handleNavigate}>{title}</h1>
                 <Price price={price} discount={discount} />
                 <Stars reviewNum={num_rating} reviewRating={rating} />
             </div>
