@@ -1,0 +1,29 @@
+.all-category-buttons .button-wrapper {
+    border: solid 3px rgb(0,0,0,0.9);
+    width: 11rem;
+    height: 9rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.all-category-buttons div.button-wrapper div {
+    color: black;
+    /* Title/16PX Regular */
+    font-family: 'Poppins-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.all-category-buttons div.button-wrapper:hover {
+    background-color: var(--main-red);
+}
+
+.all-category-buttons div.button-wrapper:hover div {
+    color: var(--text-white);
+}
+
+.all-category-buttons div.button-wrapper:hover svg {
+    fill: var(--text-white);
+}

@@ -52,6 +52,7 @@
 .image-container img {
     width: 10.75rem;
     height: 9.5rem;
+    cursor: pointer;
 }
 
 .image-container .discount-card {
@@ -83,6 +84,10 @@
     top: 0.75rem;
 }
 
+.heart:hover {
+    background-color: pink;
+}
+
 .watch-eye {
     top: 3.1rem;
 }
@@ -90,6 +95,7 @@
 h1.product-card-title {
     color: #000;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .product-card-price span.price-discounted {
@@ -113,8 +119,10 @@ h1.product-card-title {
 .product-card-stars div.stars {
     display: flex;
     justify-content: space-around;
-    width: 6.25;
-    height: 1.25;
+}
+
+.product-card-stars div.stars svg {
+    width: 17;
 }
 
 .product-card .num-ratings {

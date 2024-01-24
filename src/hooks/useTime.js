@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 export default function useCountdown() {
-    const finishTimestamp = 10 ** 13
     const now = new Date()
-    const [seconds, setSeconds] = useState(finishTimestamp - now.getTime())
+    const finishTimestamp = new Date(now.getFullYear(), now.getMonth() + 1, 0)
+    const [seconds, setSeconds] = useState(Math.floor((finishTimestamp.getTime() - now.getTime()) / 1000))
 
     useEffect(() => {
         const intervalId = setInterval(() => {

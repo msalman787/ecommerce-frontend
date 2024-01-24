@@ -16,15 +16,25 @@
     url("./fonts/Inter-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"),
+    url("./fonts/Inter-Bold.ttf") format("truetype");
+}
+
 
 :root {
+  font-size: 16px;
   box-sizing: border-box;
   font-family: "Inter-Regular", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100%;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: white;
 
   font-synthesis: none;
@@ -53,13 +63,13 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+html, body {
+  width: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -97,4 +107,24 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+.center-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+.pending-message {
+  color: black;
 }

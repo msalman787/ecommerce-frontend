@@ -1,0 +1,134 @@
+.shopping-cart-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:2rem;
+    padding-top: 7rem;
+
+    color: var(--Text2, #000);
+
+    /* Title/16PX Regular */
+    font-family: "Poppins-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.shopping-cart-container img {
+    width: 1.5rem;
+    object-fit: contain;
+}
+
+.shopping-cart-container .main-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:1.5rem;
+}
+
+.shopping-cart-container .main-cart p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shopping-cart-container .main-cart p span {
+    position: absolute;
+    height: 100%;
+    width: 1.5rem;
+    top: 0;
+    right: 3rem;
+    cursor: pointer;
+}
+
+.shopping-cart-container .main-cart input {
+    width: 20%;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    width: 2.5rem;
+    height: 2rem;
+    padding: 0.3rem 0.6rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.40);
+}
+
+.shopping-cart-container .main-cart > div {
+    position: relative;
+    border-radius: 4px;
+    background: var(--Primary, #FFF);
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
+    padding: 1rem;
+}
+
+.shopping-cart-container .gray-button {
+    align-self: start;
+}
+
+.shopping-cart-container .cart-total {
+    border-radius: 4px;
+    border: 1.5px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: end;
+    width: 40%;
+    padding: 1rem 1.5rem;
+}
+
+.shopping-cart-container .cart-total div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopping-cart-container .cart-total div:nth-child(3) {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.shopping-cart-container .cart-total h1 {
+    align-self: start;
+    color: var(--Text2, #000);
+
+    /* Title/20PX Medium */
+    font-family: "Poppins-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 140% */
+}
+
+.shopping-cart-container .cart-total .red-button {
+    align-self: center;
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5rem;
+    padding: 10rem;
+}
+
+
+.empty-cart h1 {
+    color: black;
+    font-family: "Poppins-Regular";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
