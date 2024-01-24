@@ -27,7 +27,7 @@ function App() {
   })
 
 
-  if (isPending) return <div>Loading...</div>
+  if (isPending) return <div className='pending-message'>Loading...</div>
   return (
     <>
       <NavBar />

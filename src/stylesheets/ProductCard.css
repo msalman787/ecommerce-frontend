@@ -119,8 +119,10 @@ h1.product-card-title {
 .product-card-stars div.stars {
     display: flex;
     justify-content: space-around;
-    width: 6.25;
-    height: 1.25;
+}
+
+.product-card-stars div.stars svg {
+    width: 17;
 }
 
 .product-card .num-ratings {

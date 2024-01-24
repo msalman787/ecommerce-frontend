@@ -30,7 +30,6 @@ export default function Home() {
         return <div>Loading...</div>
     }
 
-    console.log(products)
     return (
         <div className="home">
             <div className="main">

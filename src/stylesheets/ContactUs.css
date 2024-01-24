@@ -33,7 +33,7 @@
     height: 2.5rem;
 }
 
-.contact-us-container > div {
+.contact-us-container > div, .contact-us-container > form {
     border-radius: 4px;
     background: var(--Primary, #FFF);
 
@@ -80,7 +80,9 @@
 .contact-us-container .right-panel > div:nth-child(1) {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-between;
 }
 
 .contact-us-container .right-panel > div:nth-child(1) > div {
@@ -95,6 +97,7 @@
 }
 
 .contact-us-container .right-panel input, textarea {
+    flex: 1;
     flex-shrink: 0;
     border-radius: 0.25rem;
     background: var(--Secondary, #F5F5F5);

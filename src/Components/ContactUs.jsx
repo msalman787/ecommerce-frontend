@@ -2,10 +2,19 @@ import "../stylesheets/ContactUs.css";
 import RedButton from "./RedButton";
 import OldPhoneSvg from "./svgComponents/OldPhoneSvg";
 import MailSvg from "./svgComponents/MailSvg";
+import { useState } from "react";
 
 export default function ContactUs() {
+    const [message, setMessage] = useState('')
+
     return (
-        <div className="center-child" style={{ width: '100vw', height: '100%', margin: '5rem', padding: '0' }}>
+        <div className="center-child" style={{ width: '100%', height: '100%', margin: '0', padding: '0', flexDirection: 'column', marginBottom: '8rem' }}>
+            <h1 style={{
+                color: 'black',
+                fontSize: '2rem',
+                fontStyle: 'italic',
+                marginBottom: '4rem',
+            }}>{message}</h1>
             <div className="contact-us-container" style={{ margin: '0', padding: '0' }}>
                 <div className="left-panel">
                     <div>
@@ -37,7 +46,7 @@ export default function ContactUs() {
                         </div>
                     </div>
                 </div>
-                <div className="right-panel">
+                <form className="right-panel">
                     <div >
                         <input type="text" placeholder="Your Name" />
                         <input type="email" placeholder="Your Email" />
@@ -46,8 +55,15 @@ export default function ContactUs() {
                     <div>
                         <textarea type="textarea" placeholder="Message" />
                     </div>
-                    <RedButton text="Send Message" clickFn={() => { }} />
-                </div>
+                    <RedButton type='submit' text="Send Message" clickFn={(e) => {
+                        e.preventDefault()
+                        document.querySelector(".contact-us-container form.right-panel").reset();
+                        setMessage('Message sent')
+                        setTimeout(() => {
+                            setMessage('')
+                        }, 5000)
+                    }} />
+                </form>
             </div>
         </div>
     )

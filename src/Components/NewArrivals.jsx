@@ -12,8 +12,7 @@ export default function NewArrivals() {
     })
 
     if (isPending || !data) {
-        console.log("pending")
-        return <div></div>
+        return <div className="pending-message">Pending...</div>
     }
 
     return (

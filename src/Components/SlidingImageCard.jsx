@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../stylesheets/SlidingImageCard.css"
 
 const ButtonRow = ({ index, setIndex, numButtons }) => {
@@ -34,6 +34,12 @@ const ButtonRow = ({ index, setIndex, numButtons }) => {
 
 export default function SlidingImageCard({ imageUrls, width, height }) {
     const [curIndex, setCurIndex] = useState(0)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurIndex((curIndex + 1) % imageUrls.length)
+        }, 4000)
+        return () => clearInterval(interval)
+    })
 
     const style = {
         width,

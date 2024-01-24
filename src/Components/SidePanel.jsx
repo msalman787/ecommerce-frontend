@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import "../stylesheets/SidePanel.css"
 
 const categories = [
@@ -13,11 +14,12 @@ const categories = [
 ]
 
 export default function SidePanel() {
+    const navigate = useNavigate()
 
     return (
         <div className="side-panel">
             {categories.map((category, i) => (
-                <div key={i}>{category}</div>
+                <div key={i} onClick={() => navigate('/products')}>{category}</div>
             ))}
         </div>
     )

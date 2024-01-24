@@ -10,9 +10,6 @@ import { userClear } from '../state/userSlice'
 import "../stylesheets/NavBar.css"
 
 const NumberWrapper = ({ path, num, children }) => {
-    useEffect(() => {
-        console.log(num)
-    }, [num])
 
     const navigate = useNavigate()
     return (
