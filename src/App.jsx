@@ -17,6 +17,7 @@ import Footer from './Components/Footer'
 import { fetchAllProducts } from './services/fetchProducts'
 import { useQuery } from '@tanstack/react-query'
 import { Route, Routes } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function App() {
   const { isPending, data } = useQuery({
@@ -30,6 +31,10 @@ function App() {
   if (isPending) return <div className='pending-message'>Loading...</div>
   return (
     <>
+      <Helmet>
+        <title>Exclusive</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+      </Helmet>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
