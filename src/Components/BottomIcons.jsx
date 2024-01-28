@@ -1,4 +1,4 @@
-import "../stylesheets/bottomIcons.css"
+import "../stylesheets/BottomIcons.css"
 import CarDeliverySvg from "./svgComponents/CarDeliverySvg.jsx"
 import CustomerServiceSvg from "./svgComponents/CustomerServiceSvg.jsx"
 import SafeShieldSvg from "./svgComponents/SafeShieldSvg.jsx"
