@@ -1,4 +1,4 @@
-const USER_URL = "http://ec2-34-229-171-36.compute-1.amazonaws.com/api/user/"
+const USER_URL = "http://ec2-34-229-171-36.compute-1.amazonaws.com/api/user"
 
 export async function logIn(email, password) {
     const responseToken = await fetch(`${USER_URL}/token/`, {
