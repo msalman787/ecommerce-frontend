@@ -1,7 +1,7 @@
 import { productsReplace, obtainCategories } from "../state/productSlice"
 import store from "../state/store"
 
-const PRODUCT_URL = "/api/products/"
+const PRODUCT_URL = "/api/products"
 
 export async function fetchAllProducts() {
     const response = await fetch(`${PRODUCT_URL}/all`)

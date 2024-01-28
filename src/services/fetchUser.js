@@ -1,4 +1,4 @@
-const USER_URL = "/api/user/"
+const USER_URL = "/api/user"
 
 export async function logIn(email, password) {
     const responseToken = await fetch(`${USER_URL}/token/`, {
