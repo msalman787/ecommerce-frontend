@@ -12,5 +12,5 @@ export async function fetchAllProducts() {
 }
 
 export function fetchProduct(id) {
-    return fetch(`${PRODUCT_URL}${id}/`).then(response => response.json())
+    return fetch(`${PRODUCT_URL}/${id}/`).then(response => response.json())
 }
