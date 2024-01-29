@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter basename="/ecommerce-frontend" >
+        <BrowserRouter basename="/" >
           <App />
         </BrowserRouter>
       </QueryClientProvider >
