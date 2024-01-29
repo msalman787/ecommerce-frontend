@@ -31,10 +31,10 @@ function App() {
   if (isPending) return <div className='pending-message'>Loading...</div>
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Exclusive</title>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-      </Helmet>
+      </Helmet> */}
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
